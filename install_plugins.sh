@@ -11,7 +11,15 @@ if [ ! -d "~/.vim/bundle" ]; then
 fi
 
 echo "Installing plugin dependencies..."
-sudo apt-get install exuberant-ctags
+sudo apt-get install exuberant-ctags -y
+
+echo "Installing curl..."
+sudo apt-get install curl -y
+
+echo "Installing pathogen..."
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 
 echo "Installing plugins from github..."
 git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle/vim-tmux-navigator || true
@@ -26,3 +34,4 @@ git clone https://github.com/tpope/vim-surround ~/.vim/bundle/vim-surround || tr
 git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive || true
 git clone https://github.com/xolox/vim-easytags.git ~/.vim/bundle/vim-easytags || true
 git clone https://github.com/xolox/vim-misc.git ~/.vim/bundle/vim-misc || true
+
