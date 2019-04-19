@@ -18,6 +18,7 @@ echo "Installing third party tools used by plugins..."
 sudo apt-get install curl -y
 sudo apt-get install exuberant-ctags -y
 sudo apt-get python3-pip -y
+sudo apt-get clang-format -y
 pip install --user --update autopep8 
 
 echo "Installing pathogen..."
