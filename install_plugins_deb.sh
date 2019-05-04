@@ -1,8 +1,31 @@
 #!/bin/bash
+# only supporting debian/ubuntu for now...
+install_from_git () {
+        echo "Installing vim plugins from git..."
+        git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle/vim-tmux-navigator || true
+        git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale || true
+        git clone https://github.com/posva/vim-vue.git ~/.vim/bundle/vim-vue || true
+        git clone https://github.com/rhysd/vim-clang-format.git ~/.vim/bundle/vim-clang-format || true
+        git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp || true
+        git clone https://github.com/itchyny/lightline.vim.git ~/.vim/bundle/lightline || true
+        git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript || true
+        git clone https://github.com/scrooloose/nerdcommenter.git ~/.vim/bundle/nerdcommenter || true
+        git clone https://github.com/tpope/vim-surround ~/.vim/bundle/vim-surround || true
+        git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive || true
+        git clone https://github.com/xolox/vim-easytags.git ~/.vim/bundle/vim-easytags || true
+        git clone https://github.com/xolox/vim-misc.git ~/.vim/bundle/vim-misc || true
+        git clone https://github.com/tell-k/vim-autopep8.git ~/.vim/bundle/vim-autopep8 || true
+        git clone https://tpope.io/vim/eunuch.git ~/.vim/bundle/eunuch || true
+
+        cp ~/.vim/bundle/vim-autopep8/ftplugin/* ~/.vim/plugin/
+} 
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
-        echo "MAC OSX detected, aborting."
+        echo "MAC OSX detected, skipping prereq installs..."
+        install_from_git
         exit 1
 fi
+
 
 # create default directories
 if [ ! -d "~/.vim/autoload" ]; then
@@ -44,20 +67,5 @@ fi
 echo "Installing autopep8..."
 pip install --user --update autopep8 
 
-echo "Installing vim plugins from github..."
-git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle/vim-tmux-navigator || true
-git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale || true
-git clone https://github.com/posva/vim-vue.git ~/.vim/bundle/vim-vue || true
-git clone https://github.com/rhysd/vim-clang-format.git ~/.vim/bundle/vim-clang-format || true
-git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp || true
-git clone https://github.com/itchyny/lightline.vim.git ~/.vim/bundle/lightline || true
-git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript || true
-git clone https://github.com/scrooloose/nerdcommenter.git ~/.vim/bundle/nerdcommenter || true
-git clone https://github.com/tpope/vim-surround ~/.vim/bundle/vim-surround || true
-git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive || true
-git clone https://github.com/xolox/vim-easytags.git ~/.vim/bundle/vim-easytags || true
-git clone https://github.com/xolox/vim-misc.git ~/.vim/bundle/vim-misc || true
-git clone https://github.com/tell-k/vim-autopep8.git ~/.vim/bundle/vim-autopep8 || true
-git clone https://tpope.io/vim/eunuch.git ~/.vim/bundle/eunuch || true
+install_from_git
 
-cp ~/.vim/bundle/vim-autopep8/ftplugin/* ~/.vim/plugin/
