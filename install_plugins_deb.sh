@@ -36,16 +36,15 @@ if ! [ -x "$(command -v pip)" ]; then
         echo 'error: pip is not installed.' >&2
         sudo apt-get install python3-pip -y
 fi
+if ! [ -x "$(command -v clang-format)" ]; then
+        echo 'error: clang-format is not installed.' >&2
+        sudo apt-get install clang-format -y
+fi
 
-echo "Installing autopep8"
+echo "Installing autopep8..."
 pip install --user --update autopep8 
 
-echo "Installing pathogen..."
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-
-echo "Installing plugins from github..."
+echo "Installing vim plugins from github..."
 git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle/vim-tmux-navigator || true
 git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale || true
 git clone https://github.com/posva/vim-vue.git ~/.vim/bundle/vim-vue || true

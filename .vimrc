@@ -2,6 +2,8 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
+set t_Co=256
+let g:solarized_termcolors=256
 colorscheme solarized
 set background=dark
 
@@ -10,7 +12,7 @@ set tabstop=4 " number of visual spaces per tab
 set ignorecase
 set noswapfile " no swap file
 set smartcase " case sensitive only when capital letters used
-setl rnu! " relative line number
+setl rnu " relative line number
 set softtabstop=4 " number of space in tab when editing
 set expandtab " tabs are spaces
 set number " show line number
