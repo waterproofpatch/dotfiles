@@ -1,6 +1,27 @@
 #!/bin/bash
-# only supporting debian/ubuntu for now...
+
+# Installs vim plugins from git as well as any tools (pip, curl, git etc.) needed for a 
+# basic development environment.
+create_dirs() {
+        # create default dirs for vim plugins
+        if [ ! -d "~/.vim/autoload" ]; then
+                echo "Installing pathogen..."
+                mkdir -p ~/.vim/autoload
+                curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+        fi
+        if [ ! -d "~/.vim/bundle" ]; then
+                echo "Creating bundle dir..."
+                mkdir -p ~/.vim/bundle
+        fi
+        if [ ! -d "~/.vim/plugin" ]; then
+                echo "Creating plugin dir..."
+                mkdir -p ~/.vim/plugin
+        fi
+}
+
 install_from_git () {
+        # install vim plugins from various git repos
+        create_dirs
         echo "Installing vim plugins from git..."
         git clone https://github.com/christoomey/vim-tmux-navigator.git ~/.vim/bundle/vim-tmux-navigator || true
         git clone https://github.com/w0rp/ale.git ~/.vim/bundle/ale || true
@@ -20,52 +41,44 @@ install_from_git () {
         cp ~/.vim/bundle/vim-autopep8/ftplugin/* ~/.vim/plugin/
 } 
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-        echo "MAC OSX detected, skipping prereq installs..."
-        install_from_git
+
+install_deps() {
+        echo "Installing third party tools used by plugins..."
+        if ! [ -x "$(command -v git)" ]; then
+                echo 'Error: git is not installed.' >&2
+                sudo apt-get install git -y
+        fi
+        if ! [ -x "$(command -v curl)" ]; then
+                echo 'Error: curl is not installed.' >&2
+                sudo apt-get install curl -y
+        fi
+        if ! [ -x "$(command -v ctags)" ]; then
+                echo 'error: exuberant-ctags is not installed.' >&2
+                sudo apt-get install exuberant-ctags -y
+        fi
+        if ! [ -x "$(command -v pip)" ]; then
+                echo 'error: pip is not installed.' >&2
+                sudo apt-get install python3-pip -y
+        fi
+        if ! [ -x "$(command -v clang-format)" ]; then
+                echo 'error: clang-format is not installed.' >&2
+                sudo apt-get install clang-format -y
+        fi
+}
+
+install_from_git
+
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+        echo "Installing dependencies for linux-gnu"
+        install_deps
         exit 1
 fi
 
+echo "Installing pip tools..."
+pip install autopep8 
+pip install pytest 
+pip install virtualenv 
 
-# create default directories
-if [ ! -d "~/.vim/autoload" ]; then
-        echo "Installing pathogen..."
-        mkdir -p ~/.vim/autoload
-        curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-fi
-if [ ! -d "~/.vim/bundle" ]; then
-        echo "Creating bundle dir..."
-        mkdir -p ~/.vim/bundle
-fi
-if [ ! -d "~/.vim/plugin" ]; then
-        echo "Creating plugin dir..."
-        mkdir -p ~/.vim/plugin
-fi
 
-echo "Installing third party tools used by plugins..."
-if ! [ -x "$(command -v git)" ]; then
-        echo 'Error: git is not installed.' >&2
-        sudo apt-get install git -y
-fi
-if ! [ -x "$(command -v curl)" ]; then
-        echo 'Error: curl is not installed.' >&2
-        sudo apt-get install curl -y
-fi
-if ! [ -x "$(command -v ctags)" ]; then
-        echo 'error: exuberant-ctags is not installed.' >&2
-        sudo apt-get install exuberant-ctags -y
-fi
-if ! [ -x "$(command -v pip)" ]; then
-        echo 'error: pip is not installed.' >&2
-        sudo apt-get install python3-pip -y
-fi
-if ! [ -x "$(command -v clang-format)" ]; then
-        echo 'error: clang-format is not installed.' >&2
-        sudo apt-get install clang-format -y
-fi
 
-echo "Installing autopep8..."
-pip install --user --update autopep8 
-
-install_from_git
 
