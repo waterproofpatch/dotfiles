@@ -1,0 +1,44 @@
+{
+    "editor.lineNumbers": "relative",
+    "settings.cycle": [{
+        "id": "lineNumbers",
+        "overrideWorkspaceSettings": false,
+        "values": [{
+                "editor.lineNumbers": "relative"
+            },
+            {
+                "editor.lineNumbers": "on"
+            }
+        ]
+    }],
+    "vim.easymotion": true,
+    "vim.leader": ",",
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [{
+        "before": ["j", "k"],
+        "after": ["<Esc>"]
+    }],
+    "vim.normalModeKeyBindingsNonRecursive": [{
+        "before": ["<leader>", "l"],
+        "after": [],
+        "commands": [{
+            "command": "settings.cycle.lineNumbers"
+        }]
+    }],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "workbench.colorTheme": "Visual Studio Dark",
+    "gitProjectManager.baseProjectsFolders": ["/Users/freeman/git"],
+    "gitlens.gitExplorer.files.layout": "tree",
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    "gitlens.views.repositories.files.layout": "tree",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.editor.enablePreview": false
+}
