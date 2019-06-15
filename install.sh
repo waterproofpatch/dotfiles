@@ -145,6 +145,7 @@ echo "Installing pip tools..."
 pip install autopep8 
 pip install pytest 
 pip install virtualenv 
+pip3 install jedi
 
 echo "Successful."
 ls -al ~/.vim
