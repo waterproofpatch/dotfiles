@@ -8,6 +8,7 @@ colorscheme solarized
 set background=dark
 
 syntax enable
+set relativenumber " relno
 set tabstop=4 " number of visual spaces per tab
 set ignorecase
 set noswapfile " no swap file
