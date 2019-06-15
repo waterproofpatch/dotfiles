@@ -40,5 +40,7 @@
     "vetur.format.defaultFormatter.html": "js-beautify-html",
     "gitlens.views.repositories.files.layout": "tree",
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "workbench.editor.enablePreview": false
+    "workbench.editor.enablePreview": false,
+    "terminal.integrated.scrollback": 10000,
+    "workbench.panel.defaultLocation": "right"
 }
