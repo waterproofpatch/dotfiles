@@ -66,6 +66,7 @@ install_from_git () {
         git clone https://github.com/flazz/vim-colorschemes.git ~/.vim/bundle/vim-colorschemes || true
         git clone https://github.com/lifepillar/vim-mucomplete.git ~/.vim/bundle/vim-mucomplete || true
         git clone https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim || true
+        git clone https://github.com/easymotion/vim-easymotion.git ~/.vim/bundle/vim-easymotion || true
 
         # this one is strange
         cp ~/.vim/bundle/vim-autopep8/ftplugin/* ~/.vim/plugin/
