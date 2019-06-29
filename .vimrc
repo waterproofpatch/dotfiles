@@ -2,8 +2,8 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
-set t_Co=256
-let g:solarized_termcolors=256
+#set t_Co=256
+#let g:solarized_termcolors=256
 colorscheme solarized
 set background=dark
 
