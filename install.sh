@@ -108,6 +108,10 @@ install_deps() {
                 echo 'error: clang-format is not installed.' >&2
                 ${installMethod} clang-format ${postfix}
         fi
+        if ! [ -x "$(command -v markdown)" ]; then
+                echo 'error: markdown is not installed.' >&2
+                ${installMethod} markdown ${postfix}
+        fi
 }
 
 install_dotfiles () {
@@ -148,8 +152,9 @@ install_deps ${OS}
 echo "Installing pip tools..."
 pip install autopep8 
 pip install pytest 
-pip install virtualenv 
-pip3 install jedi
+pip install virtualenv
+pip install gist # markdown previewing
+pip3 install jedi # language autocomplete backend (vim-jedi is the frontend)
 
 echo "Successful."
 ls -al ~/.vim
