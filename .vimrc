@@ -101,3 +101,13 @@ augroup json_autocmd
   autocmd FileType json set conceallevel=0
 augroup END
 
+" lightline customization
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
