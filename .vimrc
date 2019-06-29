@@ -2,15 +2,19 @@ filetype off
 call pathogen#infect()
 call pathogen#helptags()
 
-#set t_Co=256
-#let g:solarized_termcolors=256
+"set t_Co=256
+"let g:solarized_termcolors=256
 colorscheme solarized
 set background=dark
 
+filetype indent on " load filetype specific indend tiles
 syntax enable
+
+" vim settings
 set relativenumber " relno
+set completeopt+=menuone " add mucomplete to autocompleters
 set tabstop=4 " number of visual spaces per tab
-set ignorecase
+set ignorecase " ignore case by default while searching
 set noswapfile " no swap file
 set smartcase " case sensitive only when capital letters used
 setl rnu " relative line number
@@ -19,25 +23,38 @@ set expandtab " tabs are spaces
 set number " show line number
 set showcmd " show command in bottom bar
 set cursorline " highlight current line
-filetype indent on " load filetype specific indend tiles
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only as necessary
 set showmatch " hilight matching [{()}]
 set incsearch " match as chars entere
-set encoding=utf-8
-set hlsearch
-set laststatus=2
-nnoremap gV `[v`]
+set encoding=utf-8 " default encoding for new files
+set hlsearch " hilight search as matches are found while typing
+set laststatus=2 " start in display-status mode
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" select contents of entire file
+nnoremap gV `[v`]
+imap jk <Esc>
+
+" split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" buffer navigations
+nnoremap <C-n> :bnext<cr>
+nnoremap <C-b> :bprev<cr>
+
+" plugin settings
+let mapleader = ','
 let g:airline#extensions#tabline#enabled = 1
-set laststatus=2
-:let mapleader = ','
-:imap jk <Esc>
+let vim_markdown_preview_github=1
 
 "python mode
 let g:pymode_python = 'python3'
 
-" Put plugins and dictionaries in this dir (also on Windows)
+" put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
 
@@ -61,17 +78,6 @@ fun! ToggleNumber() "{{{
     endif
 endf "}}}
 
-"split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-"buffer navigations
-nnoremap <C-n> :bnext<cr>
-nnoremap <C-b> :bprev<cr>
-
-
 "clang format stuff
 "format on buffer write
 "let g:clang_format#auto_format=1
@@ -83,7 +89,6 @@ autocmd FileType python set expandtab shiftwidth=4 softtabstop=0
 autocmd FileType asm set expandtab shiftwidth=8 softtabstop=0 syntax=nasm
 autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 autocmd FileType vue,html,xhtml,css,xml,xslt set shiftwidth=2 softtabstop=2
-
 
 au! BufRead,BufNewFile *.json set filetype=json
 augroup json_autocmd
