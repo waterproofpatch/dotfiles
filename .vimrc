@@ -46,10 +46,8 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-n> :bnext<cr>
 nnoremap <C-b> :bprev<cr>
 
-" delete should not cut, just delete
-nnoremap d "_d
-xnoremap d "_d
-xnoremap p "_dP
+" nerdtree
+map <C-e> :NERDTreeToggle<CR>
 
 " plugin settings
 let mapleader = ','
