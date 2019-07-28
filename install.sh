@@ -70,6 +70,7 @@ install_from_git () {
         git clone https://github.com/bling/vim-bufferline ~/.vim/bundle/vim-bufferline || true
         git clone https://github.com/JamshedVesuna/vim-markdown-preview.git ~/.vim/bundle/vim-markdown-preview || true
         git clone https://github.com/ludovicchabant/vim-gutentags.git ~/.vim/bundle/vim-gutentags || true
+        git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree || true
 
         # this one is strange
         cp ~/.vim/bundle/vim-autopep8/ftplugin/* ~/.vim/plugin/
