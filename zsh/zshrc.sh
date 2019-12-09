@@ -29,7 +29,7 @@ compinit
 source $ZSH/oh-my-zsh.sh
 source $ZSH/plugins/vi-mode/vi-mode.plugin.zsh
 source $ZSH/lib/history.zsh
-source $ZSH/lib/key-bindings.zsh
+#source $ZSH/lib/key-bindings.zsh
 source $ZSH/lib/completion.zsh
 source ~/git/dotfiles/zsh/keybindings.sh
 #source $ZSH/plugins/zsh-syntax-highlighting/zsh/syntax-highlighting.zsh
