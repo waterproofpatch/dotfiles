@@ -1,46 +1,35 @@
-# point ZSH to oh my zsh installation
-export ZSH=/Users/freeman/.oh-my-zsh
-
 ZSH_THEME="robbyrussell"
+COMPLETION_WAITING_DOTS="true"
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+export ZSH=/Users/freeman/.oh-my-zsh
+export VISUAL=vim
 
 alias gs='git status'
+alias sz='source /Users/freeman/git/dotfiles/zsh/zshrc.sh'
+alias v="vim -p"
+alias dstop="docker stop $(docker ps -a -q)"
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Custom cd
+chpwd() ls
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+autoload -U compinit
 
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+#plugins=(git)
+#for plugin ($plugins); do
+#        fpath=($ZSH/plugins/$plugin $fpath)
+#done
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-plugins=(git)
+compinit
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH/plugins/vi-mode/vi-mode.plugin.zsh
+source $ZSH/lib/history.zsh
+source $ZSH/lib/key-bindings.zsh
+source $ZSH/lib/completion.zsh
+#source $ZSH/plugins/zsh-syntax-highlighting/zsh/syntax-highlighting.zsh
+#source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -48,7 +37,3 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='vim'
 fi
-
-# aliases
-alias zshconfig="vim ~/.zshrc"
-alias dstop="docker stop $(docker ps -a -q)"
