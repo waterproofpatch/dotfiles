@@ -22,3 +22,4 @@
 	}
 	zle -N git_prepare
 	bindkey "^g" git_prepare
+

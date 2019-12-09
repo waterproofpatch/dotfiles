@@ -34,3 +34,4 @@ source $ZSH/lib/completion.zsh
 source ~/git/dotfiles/zsh/keybindings.sh
 #source $ZSH/plugins/zsh-syntax-highlighting/zsh/syntax-highlighting.zsh
 #source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/git/dotfiles/zsh/prompt.sh
