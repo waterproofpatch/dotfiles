@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'leafoftree/vim-vue-plugin'
 call plug#end()
 
 filetype indent on " load filetype specific indend tiles
@@ -49,7 +50,9 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let mapleader = ','
 
 " rebind escape
-imap jk <Esc>
+" imap jk <Esc>
+imap kj <Esc>
+imap jj <Esc>
 
 " split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -75,6 +78,7 @@ imap <C-F> <c-o>:ClangFormat<cr>
 
 "toggle relative line numbers
 nn <silent> <leader>l :call ToggleNumber()<CR>
+nn <silent> <leader>w :w<CR>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
