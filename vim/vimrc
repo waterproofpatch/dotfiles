@@ -18,6 +18,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'leafoftree/vim-vue-plugin'
+Plug 'joe-skb7/cscope-maps'
 call plug#end()
 
 filetype indent on " load filetype specific indend tiles
