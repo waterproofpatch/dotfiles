@@ -20,7 +20,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'leafoftree/vim-vue-plugin'
 call plug#end()
 
-filetype indent on " load filetype specific indend tiles
+filetype indent on " load filetype specific indent tiles
 syntax enable
 colorscheme gruvbox
 
@@ -44,7 +44,6 @@ set incsearch " match as chars entere
 set encoding=utf-8 " default encoding for new files
 set hlsearch " hilight search as matches are found while typing
 set laststatus=2 " start in display-status mode
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " leader mapping
 let mapleader = ','
@@ -53,6 +52,9 @@ let mapleader = ','
 " imap jk <Esc>
 imap kj <Esc>
 imap jj <Esc>
+
+" rebind save
+nn <silent> <leader>w :w<CR>
 
 " split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -78,13 +80,16 @@ imap <C-F> <c-o>:ClangFormat<cr>
 
 "toggle relative line numbers
 nn <silent> <leader>l :call ToggleNumber()<CR>
-nn <silent> <leader>w :w<CR>
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
 
 " python mode
 let g:pymode_python = 'python3'
+
+" ale linting 
+let g:ale_linters = {'python': ['pylint']}
+let g:ale_python_pylint_options = '--load-plugins pylint_flask,pylint_flask_sqlalchemy'
 
 " put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
