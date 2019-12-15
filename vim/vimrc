@@ -24,6 +24,7 @@ call plug#end()
 filetype indent on " load filetype specific indend tiles
 syntax enable
 colorscheme gruvbox
+set background=dark
 
 " settings
 set relativenumber " relno
