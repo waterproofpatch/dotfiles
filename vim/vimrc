@@ -2,6 +2,7 @@ filetype off
 
 " vim-plug
 call plug#begin()
+" comment a plugin to disable it on startup
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tell-k/vim-autopep8'
