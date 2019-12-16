@@ -47,7 +47,6 @@ set incsearch " match as chars entere
 set encoding=utf-8 " default encoding for new files
 set hlsearch " hilight search as matches are found while typing
 set laststatus=2 " start in display-status mode
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " leader mapping
 let mapleader = ','
