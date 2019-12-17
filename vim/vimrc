@@ -20,6 +20,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'joe-skb7/cscope-maps'
+Plug 'mengelbrecht/lightline-bufferline'
 call plug#end()
 
 filetype indent on " load filetype specific indend tiles
@@ -47,6 +48,22 @@ set incsearch " match as chars entere
 set encoding=utf-8 " default encoding for new files
 set hlsearch " hilight search as matches are found while typing
 set laststatus=2 " start in display-status mode
+set showtabline=2 " status line at top
+
+" lightline customization
+let g:lightline = {
+       \ 'active': {
+       \   'left': [ [ 'mode', 'paste' ],
+       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+       \ },
+       \ 'colorscheme': 'gruvbox',
+       \ 'component_function': {
+       \   'gitbranch': 'fugitive#head'
+       \ },
+       \ }
+let g:lightline.tabline = {'left': [['buffers']], 'right': [['close']]}
+let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
+let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " leader mapping
 let mapleader = ','
@@ -68,6 +85,7 @@ nnoremap <C-b> :bprev<cr>
 
 " cscope stuff
 source ~/.vim/plugged/cscope-maps/plugin/cscope_maps.vim
+
 " use cscope first, then ctags
 set cscopetag
 
@@ -82,27 +100,14 @@ imap <C-F> <c-o>:ClangFormat<cr>
 nn <silent> <leader>l :call ToggleNumber()<CR>
 nn <silent> <leader>w :w<CR>
 
-" airline
-let g:airline#extensions#tabline#enabled = 1
-
 " python mode
 let g:pymode_python = 'python3'
 
 " put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
-"
-" lightline customization
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
 
+" easytags stuff
 let g:easytags_async = 1
 
 " keep undo history across sessions by storing it in a file
