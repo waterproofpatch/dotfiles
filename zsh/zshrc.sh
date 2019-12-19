@@ -1,16 +1,16 @@
+set -o magicequalsubst
 ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-export ZSH=/Users/freeman/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 export VISUAL=vim
 export EDITOR='vim'
 
 alias gs='git status'
 alias sz='source /Users/freeman/git/dotfiles/zsh/zshrc.sh'
 alias v="vim -p"
-alias dstop="docker stop $(docker ps -a -q)"
 
 stty -ixon
 
