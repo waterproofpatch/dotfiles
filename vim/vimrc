@@ -4,6 +4,7 @@ filetype off
 call plug#begin()
 " comment a plugin to disable it on startup
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'scrooloose/nerdtree'
 Plug 'tell-k/vim-autopep8'
 Plug 'dense-analysis/ale'
@@ -20,7 +21,6 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'joe-skb7/cscope-maps'
-Plug 'mengelbrecht/lightline-bufferline'
 call plug#end()
 
 filetype indent on " load filetype specific indent tiles
@@ -113,7 +113,7 @@ let g:ale_python_pylint_options = '--load-plugins pylint_flask,pylint_flask_sqla
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
 
-" easytags stuff
+" easytags 
 let g:easytags_async = 1
 
 " keep undo history across sessions by storing it in a file
