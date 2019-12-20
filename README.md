@@ -1,17 +1,18 @@
 # Dotfiles
 
- My dotfiles.
+My dotfiles.
 
 ## Dependencies
 
 * vim-plug
 * exuberant-ctags
 * cscope
+* clang-format (llvm-tools)
 
-## Install
+## Install (Mac, Linux)
 
 ```bash
-cd zsh && git submodule update --init
+cd zsh && git submodule update --init --recursive
 ```
 
 1. Edit ~/.vimrc to source vimrc/vimrc
