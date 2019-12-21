@@ -21,6 +21,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'joe-skb7/cscope-maps'
+Plug 'NLKNguyen/c-syntax.vim'
 call plug#end()
 
 filetype indent on " load filetype specific indent tiles
