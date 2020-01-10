@@ -22,6 +22,8 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'joe-skb7/cscope-maps'
 Plug 'NLKNguyen/c-syntax.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 filetype indent on " load filetype specific indent tiles
@@ -31,6 +33,7 @@ set background=dark
 
 " settings
 set relativenumber " relno
+set clipboard=unnamedplus " use system clipboard
 set completeopt+=menuone " add mucomplete to autocompleters
 set tabstop=4 " number of visual spaces per tab
 set ignorecase " ignore case by default while searching
@@ -68,6 +71,9 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " leader mapping
 let mapleader = ','
+
+" don't close split on bd
+nmap <leader>d :bprevious<CR>:bdelete #<CR>
 
 " rebind escape
 " imap jk <Esc>
@@ -109,6 +115,10 @@ let g:pymode_python = 'python3'
 " ale linting 
 let g:ale_linters = {'python': ['pylint']}
 let g:ale_python_pylint_options = '--load-plugins pylint_flask,pylint_flask_sqlalchemy'
+
+" comment strings
+autocmd FileType vue setlocal commentstring=<!--\ %s\ -->
+autocmd FileType c setlocal commentstring=//\ %s
 
 " put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
