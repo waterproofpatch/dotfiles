@@ -5,7 +5,6 @@ call plug#begin()
 " comment a plugin to disable it on startup
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'scrooloose/nerdtree'
 Plug 'tell-k/vim-autopep8'
 Plug 'dense-analysis/ale'
 Plug 'morhetz/gruvbox'
@@ -21,7 +20,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'joe-skb7/cscope-maps'
-Plug 'NLKNguyen/c-syntax.vim'
+Plug 'NLKNguyen/c-syntax.vim' " extra C syntax highlighting
 Plug 'rust-lang/rust.vim'
 Plug 'majutsushi/tagbar'
 call plug#end()
@@ -94,7 +93,7 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-n> :bnext<cr>
 nnoremap <C-b> :bprev<cr>
 
-" cscope stuff
+" joe-skb7/cscope-maps - cscope stuff
 source ~/.vim/plugged/cscope-maps/plugin/cscope_maps.vim
 
 " use cscope first, then ctags
@@ -131,12 +130,13 @@ let g:ale_python_pylint_options = '--load-plugins pylint_flask,pylint_flask_sqla
 " comment strings
 autocmd FileType vue setlocal commentstring=<!--\ %s\ -->
 autocmd FileType c setlocal commentstring=//\ %s
+" autocmd FileType c setlocal commentstring=/*\ %s\ */
 
 " put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
 
-" easytags 
+" xolox/vim-easytags - easytags 
 let g:easytags_async = 1
 
 " keep undo history across sessions by storing it in a file
