@@ -53,6 +53,7 @@ set encoding=utf-8 " default encoding for new files
 set hlsearch " hilight search as matches are found while typing
 set laststatus=2 " start in display-status mode
 set showtabline=2 " status line at top
+set autoread " auto reload files from disk
 
 " lightline customization
 let g:lightline = {
@@ -102,14 +103,25 @@ set cscopetag
 " nerdtree
 map <C-e> :NERDTreeToggle<CR>
 
-" clang format stuff
+" netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+augroup ProjectDrawer
+    autocmd!
+      autocmd VimEnter * :Vexplore
+    augroup END
+
+" rhysd/vim-clang-format - clang format stuff
 map <C-F> :ClangFormat<cr>
 imap <C-F> <c-o>:ClangFormat<cr>
 
 "toggle relative line numbers
 nn <silent> <leader>l :call ToggleNumber()<CR>
 
-" python mode
+" python mode TODO deprecate this?
 let g:pymode_python = 'python3'
 
 " ale linting 
