@@ -75,6 +75,9 @@ let mapleader = ','
 " don't close split on bd
 nmap <leader>d :bprevious<CR>:bdelete #<CR>
 
+" source vimrc
+nmap <leader>s :source ~/.vimrc<CR>
+
 " rebind escape
 " imap jk <Esc>
 imap kj <Esc>
@@ -120,14 +123,11 @@ imap <C-F> <c-o>:ClangFormat<cr>
 "toggle relative line numbers
 nn <silent> <leader>l :call ToggleNumber()<CR>
 
-" python mode TODO deprecate this?
-let g:pymode_python = 'python3'
-
-" ale linting 
+" dense-analysis/ale - ale linting 
 let g:ale_linters = {'python': ['pylint']}
 let g:ale_python_pylint_options = '--load-plugins pylint_flask,pylint_flask_sqlalchemy'
 
-" comment strings
+" tpope/vim-commentary - comment strings
 autocmd FileType vue setlocal commentstring=<!--\ %s\ -->
 autocmd FileType c setlocal commentstring=//\ %s
 " autocmd FileType c setlocal commentstring=/*\ %s\ */
