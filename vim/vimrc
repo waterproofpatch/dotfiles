@@ -54,6 +54,7 @@ set hlsearch " hilight search as matches are found while typing
 set laststatus=2 " start in display-status mode
 set showtabline=2 " status line at top
 set autoread " auto reload files from disk
+set colorcolumn=80
 
 " lightline customization
 let g:lightline = {
@@ -98,16 +99,8 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-n> :bnext<cr>
 nnoremap <C-b> :bprev<cr>
 
-" deconflict with tmux navigator keybindingskj:w
-augroup navigator
-  autocmd!
-  autocmd FileType netrw call s:reset_netrw_keys()
-augroup END
-
-function! s:reset_netrw_keys() abort
-  nmap <buffer> <silent> <c-h> <Plug>NetrwHideEdit
-  nmap <buffer> <silent> <c-l> <Plug>NetrwRefresh
-endfunction
+" tpope/vim-vinegar - hide dotfiles 'gh' to goggle . hiding
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 " joe-skb7/cscope-maps - cscope stuff
 source ~/.vim/plugged/cscope-maps/plugin/cscope_maps.vim
@@ -120,6 +113,9 @@ imap <C-F> <c-o>:ClangFormat<cr>
 
 "toggle relative line numbers
 nn <silent> <leader>l :call ToggleNumber()<CR>
+
+" toggle colorcolumn
+nn <silent> <leader>c :call ToggleColorColumn()<CR>
 
 " dense-analysis/ale - ale linting 
 let g:ale_linters = {'python': ['pylint']}
@@ -153,6 +149,17 @@ fun! ToggleNumber() "{{{
         :exec &nu==&rnu? "setl nu!" : "setl rnu!"
     else
         setl nu! 
+    endif
+endf "}}}
+
+" toggle color column
+fun! ToggleColorColumn() "{{{
+    if &cc == 80
+        :echo "unsetting colorcoluimn"
+        :exec "set colorcolumn="
+    else
+        :echo "setting colorcolumn"
+        set colorcolumn=80
     endif
 endf "}}}
 
