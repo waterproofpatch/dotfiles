@@ -155,7 +155,7 @@ endf "}}}
 " toggle color column
 fun! ToggleColorColumn() "{{{
     if &cc == 80
-        :echo "unsetting colorcoluimn"
+        :echo "unsetting colorcolumn"
         :exec "set colorcolumn="
     else
         :echo "setting colorcolumn"
