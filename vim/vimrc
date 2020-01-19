@@ -17,6 +17,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'joe-skb7/cscope-maps'
@@ -75,16 +76,17 @@ let mapleader = ','
 " don't close split on bd
 nmap <leader>d :bprevious<CR>:bdelete #<CR>
 
-" source vimrc
+" manage vimrc
 nmap <leader>s :source ~/.vimrc<CR>
+nmap <leader>e :e ~/.vimrc<CR>
+
+" rebind save
+nn <silent> <leader>w :w<CR>
 
 " rebind escape
 " imap jk <Esc>
 imap kj <Esc>
 imap jj <Esc>
-
-" rebind save
-nn <silent> <leader>w :w<CR>
 
 " split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -96,25 +98,21 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <C-n> :bnext<cr>
 nnoremap <C-b> :bprev<cr>
 
+" deconflict with tmux navigator keybindingskj:w
+augroup navigator
+  autocmd!
+  autocmd FileType netrw call s:reset_netrw_keys()
+augroup END
+
+function! s:reset_netrw_keys() abort
+  nmap <buffer> <silent> <c-h> <Plug>NetrwHideEdit
+  nmap <buffer> <silent> <c-l> <Plug>NetrwRefresh
+endfunction
+
 " joe-skb7/cscope-maps - cscope stuff
 source ~/.vim/plugged/cscope-maps/plugin/cscope_maps.vim
-
 " use cscope first, then ctags
 set cscopetag
-
-" nerdtree
-map <C-e> :NERDTreeToggle<CR>
-
-" netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-augroup ProjectDrawer
-    autocmd!
-      autocmd VimEnter * :Vexplore
-    augroup END
 
 " rhysd/vim-clang-format - clang format stuff
 map <C-F> :ClangFormat<cr>
