@@ -5,6 +5,8 @@ My dotfiles.
 ## Dependencies
 
 * vim-plug
+* fzf `brew install fzf`
+* ag `brew install ag`
 * exuberant-ctags
 * cscope
 * clang-format (llvm-tools)

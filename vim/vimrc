@@ -24,6 +24,8 @@ Plug 'joe-skb7/cscope-maps'
 Plug 'NLKNguyen/c-syntax.vim' " extra C syntax highlighting
 Plug 'rust-lang/rust.vim'
 Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 filetype indent on " load filetype specific indent tiles
