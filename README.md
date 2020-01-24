@@ -21,3 +21,4 @@ cd zsh && git submodule update --init --recursive
 2. Edit ~/.tmux.conf to source tmux/tmux.conf
 3. Edit ~/.zshrc to source zsh/zshrc.sh
 4. Copy clang/.clang-format to ~/
+5. $(brew --prefix)/opt/fzf/install
