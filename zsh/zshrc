@@ -10,6 +10,7 @@ export EDITOR='vim'
 
 alias gs='git status'
 alias sz='source /Users/freeman/git/dotfiles/zsh/zshrc.sh'
+alias vim='/usr/local/bin/vim'
 alias v="vim -p"
 alias python="python3"
 
