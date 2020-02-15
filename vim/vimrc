@@ -3,31 +3,30 @@ filetype off
 " vim-plug
 call plug#begin()
 " comment a plugin to disable it on startup
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
-Plug 'tell-k/vim-autopep8'
-Plug 'dense-analysis/ale'
-Plug 'morhetz/gruvbox'
-Plug 'kien/ctrlp.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'xolox/vim-misc'
-Plug 'rhysd/vim-clang-format'
-Plug 'easymotion/vim-easymotion'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-vinegar'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'leafoftree/vim-vue-plugin'
-Plug 'joe-skb7/cscope-maps'
-Plug 'NLKNguyen/c-syntax.vim' 
-Plug 'kaicataldo/material.vim'
-Plug 'rust-lang/rust.vim'
-Plug 'majutsushi/tagbar'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'liuchengxu/vim-clap'
+Plug 'itchyny/lightline.vim' " status line
+Plug 'mengelbrecht/lightline-bufferline' " display buffers at top
+Plug 'tell-k/vim-autopep8' " auto format python code
+Plug 'dense-analysis/ale' " async linting
+Plug 'morhetz/gruvbox' " colorscheme
+Plug 'ludovicchabant/vim-gutentags' " auto tag maintenance
+Plug 'xolox/vim-misc' " dependency for something
+Plug 'rhysd/vim-clang-format' " :ClangFormat
+Plug 'easymotion/vim-easymotion' " numbered motions
+Plug 'christoomey/vim-tmux-navigator' " for tmux
+Plug 'tpope/vim-fugitive' " git integration
+Plug 'tpope/vim-commentary' " comments 'gcc'
+Plug 'tpope/vim-surround' " quotes and things
+Plug 'tpope/vim-vinegar' " nicer handling of netrw
+Plug 'vim-scripts/ReplaceWithRegister' " TODO do I need this?
+Plug 'leafoftree/vim-vue-plugin' " vue syntax and linting
+Plug 'joe-skb7/cscope-maps' " cs stuff
+Plug 'NLKNguyen/c-syntax.vim' " better syntax highlighting
+Plug 'kaicataldo/material.vim' " TODO do I need this?
+Plug 'rust-lang/rust.vim' " rust syntax etc.
+Plug 'majutsushi/tagbar' " :TagBar
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf
+Plug 'junegunn/fzf.vim' " fzf bindings
+Plug 'liuchengxu/vim-clap' " experimental TODO do I want this?
 call plug#end()
 
 filetype indent on " load filetype specific indent tiles
@@ -37,7 +36,7 @@ set background=dark
 
 " settings
 set relativenumber " relno
-" set clipboard=unnamedplus " use system clipboard
+" set clipboard=unnamedplus " use system clipboard 
 set completeopt+=menuone " add mucomplete to autocompleters
 set tabstop=4 " number of visual spaces per tab
 set ignorecase " ignore case by default while searching
@@ -62,7 +61,6 @@ set showtabline=2 " status line at top
 set autoread " auto reload files from disk
 set backspace=eol,indent,start " familiar backspace behavior
 set colorcolumn=80 " column limit indicator
-
 
 " leader mapping
 let mapleader = ','
@@ -96,7 +94,7 @@ nn <silent> <leader>c :call ToggleColorColumn()<CR>
 
 " put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
-let &runtimepath.=','.vimDir
+let &runtimepath.=','.vimDir " TODO necessary line?
 
 " keep undo history across sessions by storing it in a file
 if has('persistent_undo')
@@ -194,9 +192,9 @@ let g:ale_python_pylint_options = '--load-plugins pylint_flask,pylint_flask_sqla
 
 " tpope/vim-commentary - comment strings
 autocmd FileType vue setlocal commentstring=<!--\ %s\ -->
-autocmd FileType c setlocal commentstring=//\ %s
-" autocmd FileType c setlocal commentstring=/*\ %s\ */
+" autocmd FileType c setlocal commentstring=//\ %s
+autocmd FileType c setlocal commentstring=/*\ %s\ */
 
 " xolox/vim-easytags - easytags 
-let g:easytags_async = 1
+" let g:easytags_async = 1
 
