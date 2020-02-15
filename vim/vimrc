@@ -9,7 +9,7 @@ Plug 'tell-k/vim-autopep8'
 Plug 'dense-analysis/ale'
 Plug 'morhetz/gruvbox'
 Plug 'kien/ctrlp.vim'
-Plug 'xolox/vim-easytags'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'xolox/vim-misc'
 Plug 'rhysd/vim-clang-format'
 Plug 'easymotion/vim-easymotion'
@@ -21,7 +21,8 @@ Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'leafoftree/vim-vue-plugin'
 Plug 'joe-skb7/cscope-maps'
-Plug 'NLKNguyen/c-syntax.vim' " extra C syntax highlighting
+Plug 'NLKNguyen/c-syntax.vim' 
+Plug 'kaicataldo/material.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -59,7 +60,8 @@ set hlsearch " hilight search as matches are found while typing
 set laststatus=2 " start in display-status mode
 set showtabline=2 " status line at top
 set autoread " auto reload files from disk
-set colorcolumn=80
+set backspace=eol,indent,start " familiar backspace behavior
+set colorcolumn=80 " column limit indicator
 
 
 " leader mapping
@@ -172,6 +174,7 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 nnoremap <leader>f :Files<cr>
 nnoremap <leader>r :History<cr>
 nnoremap <leader>t :Tags<cr>
+nnoremap <leader>b :Buffers<cr>
 
 " tpope/vim-vinegar - hide dotfiles 'gh' to goggle . hiding
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
@@ -186,7 +189,7 @@ map <C-F> :ClangFormat<cr>
 imap <C-F> <c-o>:ClangFormat<cr>
 
 " dense-analysis/ale - ale linting 
-let g:ale_linters = {'python': ['pylint']}
+let g:ale_linters = {'python': ['pylint'], 'c': ['clang']}
 let g:ale_python_pylint_options = '--load-plugins pylint_flask,pylint_flask_sqlalchemy'
 
 " tpope/vim-commentary - comment strings
