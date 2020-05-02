@@ -10,6 +10,7 @@ My dotfiles. Tested primarily on Mac, somewhat on Linux
 * exuberant-ctags
 * cscope
 * clang-format (llvm-tools)
+* bat `brew install bat`
 
 ## Install (Mac, Linux)
 
