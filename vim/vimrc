@@ -173,6 +173,11 @@ nnoremap <C-p> :Files<cr>
 nnoremap <leader>r :History<cr>
 nnoremap <leader>t :Tags<cr>
 nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>l :Lines<cr>
+let g:fzf_preview_window = 'right:60%'
+" Required to have 'bat' installed
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
 
 " tpope/vim-vinegar - hide dotfiles 'gh' to goggle . hiding
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
