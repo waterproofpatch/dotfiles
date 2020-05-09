@@ -5,7 +5,6 @@ call plug#begin()
 " comment a plugin to disable it on startup
 Plug 'itchyny/lightline.vim' " status line
 Plug 'mengelbrecht/lightline-bufferline' " display buffers at top
-Plug 'tell-k/vim-autopep8' " auto format python code
 Plug 'dense-analysis/ale' " async linting
 Plug 'morhetz/gruvbox' " colorscheme
 Plug 'ludovicchabant/vim-gutentags' " auto tag maintenance
@@ -17,19 +16,25 @@ Plug 'tpope/vim-fugitive' " git integration
 Plug 'tpope/vim-commentary' " comments 'gcc'
 Plug 'tpope/vim-surround' " quotes and things
 Plug 'tpope/vim-vinegar' " nicer handling of netrw
-Plug 'vim-scripts/ReplaceWithRegister' " TODO do I need this?
+Plug 'vim-scripts/AutoComplPop' " Auto open complete menus
 Plug 'leafoftree/vim-vue-plugin' " vue syntax and linting
 Plug 'joe-skb7/cscope-maps' " cs stuff
 Plug 'NLKNguyen/c-syntax.vim' " better syntax highlighting
-Plug 'kaicataldo/material.vim' " TODO do I need this?
-Plug 'rust-lang/rust.vim' " rust syntax etc.
 Plug 'majutsushi/tagbar' " :TagBar
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf
 Plug 'junegunn/fzf.vim' " fzf bindings
 Plug 'liuchengxu/vim-clap' " experimental TODO do I want this?
+Plug 'airblade/vim-gitgutter' " gitgitter
+
+" Language plugins
+Plug 'rust-lang/rust.vim' " rust syntax etc.
+Plug 'tell-k/vim-autopep8' " auto format python code
+
 call plug#end()
 
 filetype indent on " load filetype specific indent tiles
+set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
 syntax enable
 colorscheme gruvbox
 set background=dark
@@ -170,6 +175,7 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 
 " junegun/fzf - file/buffer navigation with fzf
 nnoremap <C-p> :Files<cr>
+nnoremap <C-i> :History<cr>
 nnoremap <leader>r :History<cr>
 nnoremap <leader>t :Tags<cr>
 nnoremap <leader>b :Buffers<cr>
