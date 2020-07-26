@@ -16,7 +16,7 @@ Plug 'tpope/vim-fugitive' " git integration
 Plug 'tpope/vim-commentary' " comments 'gcc'
 Plug 'tpope/vim-surround' " quotes and things
 Plug 'tpope/vim-vinegar' " nicer handling of netrw
-Plug 'vim-scripts/AutoComplPop' " Auto open complete menus
+" Plug 'vim-scripts/AutoComplPop' " Auto open complete menus
 Plug 'leafoftree/vim-vue-plugin' " vue syntax and linting
 Plug 'joe-skb7/cscope-maps' " cs stuff
 Plug 'NLKNguyen/c-syntax.vim' " better syntax highlighting
@@ -25,6 +25,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf
 Plug 'junegunn/fzf.vim' " fzf bindings
 Plug 'liuchengxu/vim-clap' " experimental TODO do I want this?
 Plug 'airblade/vim-gitgutter' " gitgitter
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Language plugins
 Plug 'rust-lang/rust.vim' " rust syntax etc.
@@ -33,8 +34,9 @@ Plug 'tell-k/vim-autopep8' " auto format python code
 call plug#end()
 
 filetype indent on " load filetype specific indent tiles
-set omnifunc=syntaxcomplete#Complete
-set completeopt=longest,menuone
+" set omnifunc=syntaxcomplete#Complete
+set completeopt=menuone,menu,longest,preview
+
 syntax enable
 colorscheme gruvbox
 set background=dark
@@ -208,4 +210,31 @@ autocmd FileType c setlocal commentstring=/*\ %s\ */
 
 " xolox/vim-easytags - easytags 
 " let g:easytags_async = 1
+
+""""""""""""""""""""""""""""""
+" => Visual mode related
+""""""""""""""""""""""""""""""
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+function! VisualSelection(direction, extra_filter) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", "\\/.*'$^~[]")
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'gv'
+        call CmdLine("Ack '" . l:pattern . "' " )
+    elseif a:direction == 'replace'
+        call CmdLine("%s" . '/'. l:pattern . '/')
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
+
+"CoC
+" let g:coc_disable_startup_warning=1
 
