@@ -25,7 +25,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf
 Plug 'junegunn/fzf.vim' " fzf bindings
 Plug 'liuchengxu/vim-clap' " experimental TODO do I want this?
 Plug 'airblade/vim-gitgutter' " gitgitter
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Language plugins
 Plug 'rust-lang/rust.vim' " rust syntax etc.
@@ -178,6 +177,7 @@ let g:lightline.component_type   = {'buffers': 'tabsel'}
 " junegun/fzf - file/buffer navigation with fzf
 nnoremap <C-p> :Files<cr>
 nnoremap <C-i> :History<cr>
+nnoremap <leader>f :Files<cr>
 nnoremap <leader>r :History<cr>
 nnoremap <leader>t :Tags<cr>
 nnoremap <leader>b :Buffers<cr>
