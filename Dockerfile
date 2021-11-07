@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     clang \
     zsh \
     wget \
+    fzf \
     python3-pip
 
 # create a non-root user
@@ -26,6 +27,7 @@ ENV TERM=xterm-256color
 
 COPY .tmux.conf .
 COPY .vimrc .
+COPY .fzf.zsh .
 
 # isntall vim-plug
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -43,3 +45,5 @@ COPY .zshrc .
 # install zsh-syntax-highlighting
 RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+# install zsh-autosuggestions
+RUN git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
