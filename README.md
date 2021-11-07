@@ -11,6 +11,7 @@ My dotfiles. Tested primarily on Mac, somewhat on Linux
 * cscope
 * clang-format (llvm-tools)
 * bat `brew install bat`
+* docker
 
 ## Install (Mac, Linux)
 
@@ -18,9 +19,9 @@ My dotfiles. Tested primarily on Mac, somewhat on Linux
 cd zsh && git submodule update --init --recursive
 ```
 
-1. Edit ~/.vimrc to source vimrc/vimrc
-2. Edit ~/.tmux.conf to source tmux/tmux.conf
-3. Edit ~/.zshrc to source zsh/zshrc.sh
-4. Run `:PlugInstall` in vim
-5. Copy clang/.clang-format to ~/
+1. Edit `~/.vimrc` to source `.vimrc`
+2. Edit `~/.tmux.conf` to source `.tmux.conf`
+3. Edit `~/.zshrc` to source `.zshrc`
+4. Run `:PlugInstall` in `vim`
+5. Copy `.clang-format` to `~/`
 6. $(brew --prefix)/opt/fzf/install
