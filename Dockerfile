@@ -28,6 +28,7 @@ ENV TERM=xterm-256color
 COPY .tmux.conf .
 COPY .vimrc .
 COPY .fzf.zsh .
+COPY .clang-format .
 
 # isntall vim-plug
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
