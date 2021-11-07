@@ -1,1 +1,1 @@
-docker run -it dev
+docker run -it dev /bin/zsh

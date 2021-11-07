@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
     python3 \
     curl \
     clang \
+    zsh \
+    wget \
     python3-pip
 
 # create a non-root user
@@ -32,3 +34,6 @@ RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # insatll vim plugins from command line, exit 0 because the pluginstall script exits with 1, failing the build
 RUN vim -es -u ~/.vimrc -i NONE -c "PlugInstall" -c "qa"; exit 0
+
+# install oh-my-zsh
+RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
