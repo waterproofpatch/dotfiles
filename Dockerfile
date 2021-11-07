@@ -3,6 +3,7 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
     vim \
     tmux \
+    silversearcher-ag \
     git \
     sudo \
     python3 \
