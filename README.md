@@ -15,10 +15,6 @@ My dotfiles. Tested primarily on Mac, somewhat on Linux
 
 ## Install (Mac, Linux)
 
-```bash
-cd zsh && git submodule update --init --recursive
-```
-
 1. Edit `~/.vimrc` to source `.vimrc`
 2. Edit `~/.tmux.conf` to source `.tmux.conf`
 3. Edit `~/.zshrc` to source `.zshrc`
