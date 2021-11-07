@@ -56,4 +56,6 @@ COPY zsh/zsh-syntax-highlighting $UHOME/git/dotfiles/zsh/zsh-syntax-highlighting
 
 WORKDIR $UHOME
 
+RUN vim +PlugInstall +silent > /dev/null 2>&1
+
 ENTRYPOINT ["zsh"]
