@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     python3 \
     curl \
+    clang \
     python3-pip
 
 # create a non-root user
