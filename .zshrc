@@ -39,7 +39,6 @@ source $ZSH/plugins/vi-mode/vi-mode.plugin.zsh
 source ~/git/dotfiles/zsh/keybindings.sh
 source ~/git/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/git/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 source ~/git/dotfiles/zsh/prompt.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
