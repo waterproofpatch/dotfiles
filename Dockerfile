@@ -39,11 +39,12 @@ RUN vim -es -u ~/.vimrc -i NONE -c "PlugInstall" -c "qa"; exit 0
 # install oh-my-zsh
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 
-# replace default zshrc
-COPY .zshrc .
-
 # install zsh-syntax-highlighting
 RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # install zsh-autosuggestions
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# replace default zshrc
+COPY .zshrc .
+
