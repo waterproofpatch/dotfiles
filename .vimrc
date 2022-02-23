@@ -16,14 +16,11 @@ Plug 'tpope/vim-fugitive' " git integration
 Plug 'tpope/vim-commentary' " comments 'gcc'
 Plug 'tpope/vim-surround' " quotes and things
 Plug 'tpope/vim-vinegar' " nicer handling of netrw
-" Plug 'vim-scripts/AutoComplPop' " Auto open complete menus
-Plug 'leafoftree/vim-vue-plugin' " vue syntax and linting
 Plug 'joe-skb7/cscope-maps' " cs stuff
-Plug 'NLKNguyen/c-syntax.vim' " better syntax highlighting
+" Plug 'NLKNguyen/c-syntax.vim' " better syntax highlighting
 Plug 'majutsushi/tagbar' " :TagBar
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf
 Plug 'junegunn/fzf.vim' " fzf bindings
-Plug 'liuchengxu/vim-clap' " experimental TODO do I want this?
 Plug 'airblade/vim-gitgutter' " gitgitter
 
 " Language plugins
@@ -32,7 +29,7 @@ Plug 'tell-k/vim-autopep8' " auto format python code
 
 call plug#end()
 
-filetype indent on " load filetype specific indent tiles
+filetype plugin indent on " load filetype specific indent tiles
 " set omnifunc=syntaxcomplete#Complete
 set completeopt=menuone,menu,longest,preview
 
@@ -139,6 +136,7 @@ augroup formatting
   autocmd BufRead,BufNewFile *.json set filetype=json
   autocmd BufRead,BufNewFile *.htm,*.html setlocal tabstop=8 shiftwidth=2 softtabstop=2
   autocmd FileType python set expandtab shiftwidth=4 softtabstop=0
+  autocmd FileType c set expandtab shiftwidth=4 softtabstop=0
   autocmd FileType asm set expandtab shiftwidth=8 softtabstop=0 syntax=nasm
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType vue,html,xhtml,css,xml,xslt set shiftwidth=2 softtabstop=2
