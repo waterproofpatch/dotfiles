@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     zsh \
     wget \
     fzf \
-    python3-pip
+    python3-pip \
+    ctags
 
 # create a non-root user
 RUN useradd --create-home --shell /bin/bash user
