@@ -15,7 +15,15 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     iputils-ping \
     golang \
+    npm \
     universal-ctags
+
+# some global updates...
+
+# get the latest version of Node.js
+RUN npm cache clean -f
+RUN npm install -g n
+RUN n stable
 
 # create a non-root user and add them to sudoers
 RUN useradd --create-home --shell /bin/bash user
