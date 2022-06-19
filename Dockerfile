@@ -19,11 +19,14 @@ RUN apt-get update && apt-get install -y \
     universal-ctags
 
 # some global updates...
+RUN go install -v golang.org/x/tools/gopls@latest
 
 # get the latest version of Node.js
+RUN npm install -g npm@latest
 RUN npm cache clean -f
 RUN npm install -g n
 RUN n stable
+RUN npm install -g jshint
 
 # create a non-root user and add them to sudoers
 RUN useradd --create-home --shell /bin/bash user
@@ -46,6 +49,7 @@ COPY .clang-format .
 # install docker
 COPY install-docker.sh .
 RUN bash install-docker.sh
+RUN rm install-docker.sh
 
 # install vim-plug
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
