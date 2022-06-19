@@ -43,6 +43,10 @@ COPY .vimrc .
 COPY .fzf.zsh .
 COPY .clang-format .
 
+# install docker
+COPY install-docker.sh .
+RUN bash install-docker.sh
+
 # install vim-plug
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
