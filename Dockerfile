@@ -13,9 +13,11 @@ RUN apt-get update && apt-get install -y \
     wget \
     fzf \
     python3-pip \
-    ctags
+    iputils-ping \
+    golang \
+    universal-ctags
 
-# create a non-root user
+# create a non-root user and add them to sudoers
 RUN useradd --create-home --shell /bin/bash user
 RUN usermod -aG sudo user
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
@@ -27,12 +29,13 @@ WORKDIR /home/user
 # some vim plugins require this
 ENV TERM=xterm-256color
 
+# copy dotfiles into container
 COPY .tmux.conf .
 COPY .vimrc .
 COPY .fzf.zsh .
 COPY .clang-format .
 
-# isntall vim-plug
+# install vim-plug
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

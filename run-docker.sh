@@ -3,5 +3,6 @@ if [ -z "$1" ]; then
         docker run -it dev /bin/zsh
         exit 1
 else
-        docker run --mount type=bind,source=$1,target=/home/user/workspace -it dev /bin/zsh
+        echo "Mounting $1 to ~/workspace..."
+        docker run --net=host --mount type=bind,source=$1,target=/home/user/workspace -it dev /bin/zsh
 fi
