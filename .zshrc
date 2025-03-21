@@ -35,4 +35,5 @@ source $ZSH/lib/history.zsh
 source $ZSH/lib/completion.zsh
 source $ZSH/plugins/vi-mode/vi-mode.plugin.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# commented out as this file has some hardcoded paths
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
