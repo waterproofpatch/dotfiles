@@ -1,0 +1,9 @@
+cp .tmux.conf ~/.tmux.conf
+cp .vimrc ~/.vimrc
+cp .zshrc ~/.zshrc
+cp .fzf.zsh ~/.fzf.zsh
+cp .clang-format ~/.clang-format
+brew install fzf
+brew install wget
+brew install tmux
+brew install golang
